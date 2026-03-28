@@ -4,6 +4,15 @@
 
 @layer base {
   body {
-    @apply bg-deep-navy text-slate-100 font-sans antialiased selection:bg-ireland-emerald selection:text-deep-navy;
+    @apply bg-brand-bg text-slate-800 font-sans antialiased selection:bg-ireland-emerald/30;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-ireland-emerald text-white px-8 py-4 rounded-2xl font-black uppercase tracking-widest hover:bg-emerald-600 transition-all hover:scale-105 shadow-xl shadow-ireland-emerald/20 text-center;
+  }
+  .btn-secondary {
+    @apply bg-white text-slate-700 px-8 py-4 rounded-2xl font-black uppercase tracking-widest hover:bg-slate-50 transition-all hover:scale-105 border border-brand-border shadow-sm text-center;
   }
 }

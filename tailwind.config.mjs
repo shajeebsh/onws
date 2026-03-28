@@ -7,6 +7,9 @@ export default {
         'deep-navy': '#0f172a',
         'slate-on': '#334155',
         'ireland-emerald': '#10b981',
+        'brand-bg': '#f8fafc', // Slate 50
+        'brand-surface': '#ffffff',
+        'brand-border': '#e2e8f0', // Slate 200
       },
       fontFamily: {
         'sans': ['Inter', 'system-ui', 'sans-serif'],

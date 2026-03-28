@@ -1,7 +1,7 @@
 ---
 ---
 
-<div class="bg-deep-navy border border-slate-on/50 p-10 rounded-3xl shadow-2xl relative">
+<div class="bg-white p-10 rounded-3xl relative">
   <form 
     name="smart-contact" 
     method="POST" 
@@ -18,18 +18,18 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div class="space-y-2">
-        <label for="smart-name" class="text-xs font-bold text-slate-400 uppercase tracking-widest">Full Name</label>
-        <input type="text" id="smart-name" name="name" required class="w-full bg-slate-on/20 border border-slate-on/50 rounded-xl px-4 py-3 text-white focus:border-ireland-emerald outline-none transition-all" placeholder="John Doe" />
+        <label for="smart-name" class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Full Name</label>
+        <input type="text" id="smart-name" name="name" required class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all placeholder:text-slate-300" placeholder="John Doe" />
       </div>
       <div class="space-y-2">
-        <label for="smart-email" class="text-xs font-bold text-slate-400 uppercase tracking-widest">Email Address</label>
-        <input type="email" id="smart-email" name="email" required class="w-full bg-slate-on/20 border border-slate-on/50 rounded-xl px-4 py-3 text-white focus:border-ireland-emerald outline-none transition-all" placeholder="john@example.com" />
+        <label for="smart-email" class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Email Address</label>
+        <input type="email" id="smart-email" name="email" required class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all placeholder:text-slate-300" placeholder="john@example.com" />
       </div>
     </div>
 
     <div class="space-y-2">
-      <label for="smart-type" class="text-xs font-bold text-slate-400 uppercase tracking-widest">Inquiry Type</label>
-      <select id="smart-type" name="type" required class="w-full bg-slate-on/20 border border-slate-on/50 rounded-xl px-4 py-3 text-white focus:border-ireland-emerald outline-none transition-all appearance-none">
+      <label for="smart-type" class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Inquiry Type</label>
+      <select id="smart-type" name="type" required class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all appearance-none cursor-pointer">
         <option value="" disabled selected>Select service...</option>
         <option value="streetview">Streetview Projects</option>
         <option value="erp">ERP Solutions</option>
@@ -40,31 +40,31 @@
     </div>
 
     <!-- Conditional Section: Streetview -->
-    <div id="section-streetview" class="hidden space-y-4 pt-4 border-t border-slate-on/30 animate-in fade-in slide-in-from-top-2">
-      <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">Approximate Area (km²)</label>
-      <input type="number" name="area" class="w-full bg-slate-on/20 border border-slate-on/50 rounded-xl px-4 py-3 text-white focus:border-ireland-emerald outline-none" placeholder="e.g. 15" />
+    <div id="section-streetview" class="hidden space-y-4 pt-4 border-t border-brand-border animate-in fade-in slide-in-from-top-2">
+      <label class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Approximate Area (km²)</label>
+      <input type="number" name="area" class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none" placeholder="e.g. 15" />
     </div>
 
     <!-- Conditional Section: ERP/CRM -->
-    <div id="section-solutions" class="hidden space-y-4 pt-4 border-t border-slate-on/30 animate-in fade-in slide-in-from-top-2">
+    <div id="section-solutions" class="hidden space-y-4 pt-4 border-t border-brand-border animate-in fade-in slide-in-from-top-2">
       <div class="grid grid-cols-2 gap-4">
         <div>
-          <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">Company Size</label>
-          <input type="number" name="company-size" class="w-full bg-slate-on/20 border border-slate-on/50 rounded-xl px-4 py-3 text-white focus:border-ireland-emerald outline-none" placeholder="Employees" />
+          <label class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Company Size</label>
+          <input type="number" name="company-size" class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none" placeholder="Employees" />
         </div>
         <div>
-          <label class="text-xs font-bold text-slate-400 uppercase tracking-widest">Industry</label>
-          <input type="text" name="industry" class="w-full bg-slate-on/20 border border-slate-on/50 rounded-xl px-4 py-3 text-white focus:border-ireland-emerald outline-none" placeholder="Sector" />
+          <label class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Industry</label>
+          <input type="text" name="industry" class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none" placeholder="Sector" />
         </div>
       </div>
     </div>
 
     <div class="space-y-2">
-      <label for="smart-message" class="text-xs font-bold text-slate-400 uppercase tracking-widest">Message</label>
-      <textarea id="smart-message" name="message" rows="4" required class="w-full bg-slate-on/20 border border-slate-on/50 rounded-xl px-4 py-3 text-white focus:border-ireland-emerald outline-none transition-all" placeholder="How can we help?"></textarea>
+      <label for="smart-message" class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Message</label>
+      <textarea id="smart-message" name="message" rows="4" required class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all placeholder:text-slate-300" placeholder="How can we help?"></textarea>
     </div>
 
-    <button type="submit" class="w-full bg-ireland-emerald text-deep-navy font-extrabold py-5 rounded-2xl hover:bg-emerald-400 transition-all hover:scale-[1.02] shadow-xl shadow-ireland-emerald/10 uppercase tracking-widest">
+    <button type="submit" class="btn-primary w-full py-5">
       Initialize Inquiry
     </button>
   </form>
