@@ -1,0 +1,21 @@
+---
+const badges = [
+  { name: 'GDPR Compliant', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+  { name: 'Irish Registered', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
+  { name: 'Data Privacy Certified', icon: 'M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z' },
+  { name: 'Elite Partner', icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z' }
+];
+---
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 py-12 border-y border-slate-on/30">
+  {badges.map(badge => (
+    <div class="flex flex-col items-center justify-center text-center p-4 group">
+      <div class="w-12 h-12 bg-slate-on/20 rounded-xl flex items-center justify-center text-ireland-emerald mb-4 group-hover:scale-110 transition-transform">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={badge.icon} />
+        </svg>
+      </div>
+      <span class="text-xs font-semibold text-slate-400 uppercase tracking-widest">{badge.name}</span>
+    </div>
+  ))}
+</div>

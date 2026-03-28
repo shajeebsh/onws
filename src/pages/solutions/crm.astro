@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Hero from '../../components/ui/Hero.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+import ComparisonMatrix from '../../components/interactive/ComparisonMatrix.astro';
+import ROICalculator from '../../components/forms/ROICalculator.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="OliveCRM — High-Velocity Growth">
+  <Navbar />
+  <main>
+    <Hero 
+      title="OliveCRM — Accelerating Irish Growth"
+      subtitle="The high-velocity relationship engine. Automated lead generation, intelligent sales pipelines, and elite customer service tools tailored for Irish professional services."
+      cta1={{ text: "Estimate Annual ROI", href: "#roi" }}
+      cta2={{ text: "Integration Ecosystem", href: "/solutions/integration" }}
+    />
+
+    <section class="py-24 max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div>
+          <SectionHeader 
+            title="Accelerate — Your Sales Velocity"
+            subtitle="Don't let leads slip through the cracks. OliveCRM automates the heavy lifting so your team can focus on closing deals."
+          />
+          <div class="space-y-6">
+            {[
+              { title: 'Lead Intelligence', text: 'Automated scoring based on engagement and firmographics' },
+              { title: 'Pipeline Automation', text: 'Workflow triggers that move deals through the funnel' },
+              { title: 'Marketing Sync', text: 'Native integration with Mailchimp and social platforms' },
+              { title: 'Omnichannel Support', text: 'Unified inbox for email, WhatsApp, and phone' }
+            ].map(item => (
+              <div class="flex gap-4 p-4 rounded-2xl border border-slate-on/30 bg-slate-on/10 group hover:border-ireland-emerald/50 transition-all">
+                <div class="w-10 h-10 bg-ireland-emerald/10 rounded-xl flex items-center justify-center text-ireland-emerald shrink-0 group-hover:scale-110 transition-transform">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <div>
+                  <h4 class="text-white font-bold text-sm mb-1">{item.title}</h4>
+                  <p class="text-xs text-slate-500 italic leading-relaxed">{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="bg-deep-navy/80 border border-slate-on/50 rounded-3xl p-10 shadow-2xl relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-ireland-emerald/5 to-transparent"></div>
+          <ComparisonMatrix />
+        </div>
+      </div>
+    </section>
+
+    <section id="roi" class="py-24 bg-slate-on/5">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          <ROICalculator />
+          <div>
+            <SectionHeader 
+              title="Revenue — Recovery Calculator"
+              subtitle="Discover how much annual revenue is currently being lost to manual processes and disconnected data."
+            />
+            <p class="text-slate-400 mb-8 leading-relaxed">
+              Our CRM implementation is designed to recover up to 25% of lost lead revenue within the first 6 months of deployment.
+            </p>
+            <div class="bg-ireland-emerald/10 border-2 border-dashed border-ireland-emerald/30 p-8 rounded-3xl">
+              <h4 class="text-white font-bold mb-4">Elite Implementation</h4>
+              <p class="text-sm text-slate-400">
+                Every OliveCRM deployment includes a dedicated success manager and a custom integration strategy to ensure maximum adoption.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

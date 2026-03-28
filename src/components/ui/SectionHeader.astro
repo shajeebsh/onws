@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  centered?: boolean;
+}
+
+const { title, subtitle, centered = false } = Astro.props;
+---
+
+<div class={`mb-12 ${centered ? 'text-center max-w-3xl mx-auto' : ''}`}>
+  <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+    {title.split(' ').map((word, i) => (
+      <span class={i % 3 === 2 ? 'text-ireland-emerald' : ''}>{word} </span>
+    ))}
+  </h2>
+  {subtitle && <p class="text-lg text-slate-400">{subtitle}</p>}
+</div>

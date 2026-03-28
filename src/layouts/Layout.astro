@@ -20,8 +20,23 @@ import '../styles/global.css';
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<script is:inline>
+			// Handle view transition script initialization
+		</script>
+		<style is:global>
+			/* Custom scrollbar */
+			::-webkit-scrollbar {
+				width: 8px;
+			}
+			::-webkit-scrollbar-track {
+				@apply bg-deep-navy;
+			}
+			::-webkit-scrollbar-thumb {
+				@apply bg-slate-on rounded-full hover:bg-ireland-emerald transition-colors;
+			}
+		</style>
 	</head>
-	<body class="min-h-screen">
+	<body class="min-h-screen selection:bg-ireland-emerald selection:text-deep-navy">
 		<slot />
 	</body>
 </html>

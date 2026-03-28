@@ -1,0 +1,62 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  cta1: { text: string; href: string };
+  cta2: { text: string; href: string };
+  imageSrc?: string;
+}
+
+const { title, subtitle, cta1, cta2 } = Astro.props;
+---
+
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-32 px-4">
+  <!-- Dynamic Background -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-ireland-emerald/10 blur-[150px] rounded-full animate-pulse"></div>
+    <div class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-slate-on/20 blur-[180px] rounded-full"></div>
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto text-center relative z-10">
+    <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-10 backdrop-blur-sm">
+      <span class="flex h-2 w-2 rounded-full bg-ireland-emerald animate-pulse"></span>
+      <span class="text-xs font-bold uppercase tracking-widest text-slate-300">Digital Infrastructure for Irish Business</span>
+    </div>
+    
+    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-8 leading-[0.95] drop-shadow-2xl">
+      {title.split('—').map((part, i) => (
+        <span class="block">
+          {i === 1 ? <span class="text-ireland-emerald">{part}</span> : part}
+        </span>
+      ))}
+    </h1>
+    
+    <p class="max-w-3xl mx-auto text-xl md:text-2xl text-slate-400 mb-14 leading-relaxed font-medium">
+      {subtitle}
+    </p>
+    
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+      <a
+        href={cta1.href}
+        class="group relative w-full sm:w-auto px-10 py-5 bg-ireland-emerald text-deep-navy font-black rounded-2xl hover:bg-emerald-400 transition-all hover:scale-105 text-center shadow-2xl shadow-ireland-emerald/20 overflow-hidden"
+      >
+        <span class="relative z-10">{cta1.text}</span>
+        <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+      </a>
+      <a
+        href={cta2.href}
+        class="w-full sm:w-auto px-10 py-5 bg-slate-on/30 text-white font-black rounded-2xl hover:bg-slate-on/50 transition-all hover:scale-105 text-center border border-white/10 backdrop-blur-md"
+      >
+        {cta2.text}
+      </a>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-30 hidden lg:block">
+      <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+  </div>
+</section>

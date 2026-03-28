@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Hero from '../../components/ui/Hero.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+import StreetviewCalculator from '../../components/forms/StreetviewCalculator.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Precision Streetview Solutions">
+  <Navbar />
+  <main>
+    <Hero 
+      title="Precision Geospatial — Mapping the Future"
+      subtitle="Capturing Ireland's infrastructure with 8K high-fidelity 360° imagery. From urban planning to immersive tourism, we provide the data that drives decisions."
+      cta1={{ text: "Calculate Project Cost", href: "#calculator" }}
+      cta2={{ text: "View Technology", href: "/streetview/technology" }}
+    />
+
+    <section class="py-24 max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div>
+          <SectionHeader 
+            title="The Blue Line — Road-Level Data"
+            subtitle="Our 'Blue Line' service provides councils and developers with sub-meter accurate road-level imagery, ideal for asset management and urban development."
+          />
+          <ul class="space-y-4">
+            {[
+              'Sub-meter GPS precision for every frame',
+              'High-fidelity 8K resolution (7680x3840)',
+              'Seamless integration with standard GIS tools',
+              'GDPR-compliant automated face and plate blurring'
+            ].map(item => (
+              <li class="flex items-start gap-3 text-slate-400">
+                <span class="w-2 h-2 rounded-full bg-ireland-emerald mt-2 shrink-0"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-slate-on/20 aspect-video rounded-3xl border border-slate-on/50 flex items-center justify-center relative overflow-hidden group">
+          <div class="absolute inset-0 bg-gradient-to-tr from-deep-navy to-transparent opacity-60"></div>
+          <span class="text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-ireland-emerald transition-colors">Immersive 360° Preview</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculator" class="py-24 bg-slate-on/5">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          <div>
+            <SectionHeader 
+              title="Interactive — Quote Builder"
+              subtitle="Get a real-time estimate for your geospatial project. Select your area, resolution requirements, and custom add-ons."
+            />
+            <div class="bg-deep-navy p-8 rounded-3xl border border-slate-on/30">
+              <h4 class="text-white font-bold mb-4">Enterprise Tendering</h4>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                For projects exceeding 100 km² or nationwide infrastructure surveys, please contact our projects team directly for bespoke procurement support.
+              </p>
+              <a href="/#contact" class="inline-block mt-6 text-ireland-emerald font-bold hover:underline text-sm uppercase tracking-widest">Contact Projects Team →</a>
+            </div>
+          </div>
+          <StreetviewCalculator />
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 border-t border-slate-on/20">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p class="text-slate-500 text-[10px] uppercase font-bold tracking-[0.3em] mb-4">Compliance Notice</p>
+        <p class="text-slate-400 text-sm italic max-w-2xl mx-auto">
+          Street View is a trademark of Google LLC. OliveNoor Limited is an independent provider of imagery and data services, operating with proprietary capture and processing hardware.
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
