@@ -1,0 +1,69 @@
+---
+---
+
+<section id="services" class="py-24 bg-slate-on/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Interactive Geospatial <br class="hidden md:block" /> Solutions & <span class="text-ireland-emerald">Street View</span></h2>
+      <p class="max-w-2xl text-lg text-slate-400">
+        As an independent contributor to the Google Maps ecosystem, we provide high-fidelity 8K imagery that brings Irish businesses and infrastructure to life.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Card 1: The Blue Line Service -->
+      <div class="bg-deep-navy border border-slate-on/50 p-8 rounded-3xl hover:border-ireland-emerald/50 transition-all group overflow-hidden relative">
+        <div class="absolute -right-10 -top-10 w-32 h-32 bg-ireland-emerald/5 rounded-full blur-2xl group-hover:bg-ireland-emerald/10 transition-all"></div>
+        
+        <div class="w-12 h-12 bg-ireland-emerald/10 rounded-xl flex items-center justify-center mb-6 text-ireland-emerald">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+          </svg>
+        </div>
+        
+        <h3 class="text-2xl font-bold text-white mb-4">The Blue Line Service</h3>
+        <p class="text-slate-400 mb-6">
+          High-precision road-level data designed for councils, developers, and urban planners. We capture the pulse of Ireland's infrastructure with sub-meter accuracy.
+        </p>
+        <ul class="space-y-3 mb-8">
+          {['High-fidelity 8K imagery', 'Sub-meter GPS accuracy', 'Infrastructure audit ready', 'Seamless GIS integration'].map(item => (
+            <li class="flex items-center text-slate-300 text-sm italic">
+              <span class="w-1.5 h-1.5 bg-ireland-emerald rounded-full mr-2"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <!-- Card 2: Business Virtual Tours -->
+      <div class="bg-deep-navy border border-slate-on/50 p-8 rounded-3xl hover:border-ireland-emerald/50 transition-all group overflow-hidden relative">
+        <div class="absolute -right-10 -top-10 w-32 h-32 bg-slate-on/10 rounded-full blur-2xl group-hover:bg-ireland-emerald/5 transition-all"></div>
+        
+        <div class="w-12 h-12 bg-ireland-emerald/10 rounded-xl flex items-center justify-center mb-6 text-ireland-emerald">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+        </div>
+        
+        <h3 class="text-2xl font-bold text-white mb-4">Business Virtual Tours</h3>
+        <p class="text-slate-400 mb-6">
+          Immersive 360° walkthroughs for Google Business Profiles. Enhance your digital storefront and let customers explore before they visit.
+        </p>
+        <ul class="space-y-3 mb-8">
+          {['360° VR-ready tours', 'Google Maps integration', 'Enhanced local SEO', 'Multi-device support'].map(item => (
+            <li class="flex items-center text-slate-300 text-sm italic">
+              <span class="w-1.5 h-1.5 bg-ireland-emerald rounded-full mr-2"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    
+    <div class="mt-12 text-center">
+      <p class="text-slate-500 text-xs italic leading-relaxed">
+        Street View is a trademark of Google LLC. OliveNoor Limited is an independent provider of imagery and data services.
+      </p>
+    </div>
+  </div>
+</section>
