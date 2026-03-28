@@ -1,0 +1,77 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Hero from '../../components/ui/Hero.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+import ComparisonMatrix from '../../components/interactive/ComparisonMatrix.astro';
+import ROICalculator from '../../components/forms/ROICalculator.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="OliveERP — Enterprise Scaling">
+  <Navbar />
+  <main>
+    <Hero 
+      title="OliveERP — Scaling Modern Business"
+      subtitle="The central nervous system for Irish SMEs. Unified finance, operations, and inventory management with native Irish tax compliance built-in."
+      cta1={{ text: "Calculate Annual ROI", href: "#roi" }}
+      cta2={{ text: "View Industry Modules", href: "/solutions/erp-manufacturing" }}
+    />
+
+    <section class="py-24 max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div>
+          <SectionHeader 
+            title="Unified — Financial Control"
+            subtitle="Stop juggling disconnected spreadsheets. OliveERP centralizes your core data to provide a single source of truth for your entire enterprise."
+          />
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {[
+              { title: 'Automated ROS Sync', text: 'Real-time filing with Revenue Commissioners' },
+              { title: 'Inventory Matrix', text: 'Multi-warehouse tracking with AI forecasting' },
+              { title: 'Secure Payroll', text: 'GDPR-compliant payroll with SEPA integration' },
+              { title: 'BI Dashboards', text: 'Executive reporting with real-time drilldowns' }
+            ].map(item => (
+              <div class="bg-slate-on/10 border border-slate-on/30 p-6 rounded-2xl group hover:border-ireland-emerald/50 transition-all">
+                <h4 class="text-white font-bold mb-2 group-hover:text-ireland-emerald">{item.title}</h4>
+                <p class="text-xs text-slate-500 leading-relaxed italic">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="bg-deep-navy/50 border border-slate-on/50 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden group">
+          <div class="absolute -right-10 -top-10 w-40 h-40 bg-ireland-emerald/10 blur-3xl group-hover:opacity-100 opacity-0 transition-opacity"></div>
+          <ComparisonMatrix />
+        </div>
+      </div>
+    </section>
+
+    <section id="roi" class="py-24 bg-slate-on/5">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          <div>
+            <SectionHeader 
+              title="Project — Real Efficiency Gains"
+              subtitle="Use our ROI estimator to see how OliveERP reduces operational overhead and recovers billable time across your organization."
+            />
+            <div class="space-y-6">
+              <div class="bg-slate-on/10 border border-slate-on/30 p-8 rounded-2xl">
+                <h4 class="text-white font-black uppercase tracking-[0.2em] text-xs mb-4 italic">Core Integrations</h4>
+                <div class="flex flex-wrap gap-4 opacity-50">
+                  {['Xero', 'QuickBooks', 'Sage', 'Shopify', 'Mailchimp', 'ROS'].map(app => (
+                    <span class="text-xs font-bold px-4 py-2 border border-slate-on/50 rounded-lg">{app}</span>
+                  ))}
+                </div>
+              </div>
+              <p class="text-slate-400 text-sm italic">
+                Our implementation team ensures a seamless transition with zero downtime for your existing operations.
+              </p>
+            </div>
+          </div>
+          <ROICalculator />
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

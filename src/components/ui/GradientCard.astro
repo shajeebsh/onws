@@ -1,0 +1,18 @@
+---
+interface Props {
+  class?: string;
+  variant?: 'emerald' | 'slate' | 'navy';
+}
+
+const { class: className, variant = 'slate' } = Astro.props;
+
+const variants = {
+  emerald: 'from-ireland-emerald/10 via-white/50 to-white border-ireland-emerald/20 shadow-emerald-100',
+  slate: 'from-slate-50 via-white to-white border-slate-200 shadow-slate-100',
+  navy: 'from-deep-navy/5 via-slate-50 to-white border-deep-navy/10 shadow-slate-200'
+};
+---
+
+<div class={`bg-white border bg-gradient-to-br ${variants[variant]} rounded-3xl p-8 shadow-sm transition-all duration-300 hover:shadow-lg ${className}`}>
+  <slot />
+</div>

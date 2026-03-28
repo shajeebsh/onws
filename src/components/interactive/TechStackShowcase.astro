@@ -1,0 +1,20 @@
+---
+const techs = [
+  { name: 'Astro', category: 'Frontend', color: '#ff5d01' },
+  { name: 'Tailwind CSS', category: 'Styling', color: '#06b6d4' },
+  { name: 'Node.js', category: 'Backend', color: '#339933' },
+  { name: 'Python', category: 'Data/SaaS', color: '#3776ab' },
+  { name: 'AWS', category: 'Infrastructure', color: '#ff9900' },
+  { name: 'PostgreSQL', category: 'Database', color: '#4169e1' },
+];
+---
+
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+  {techs.map(tech => (
+    <div class="bg-slate-on/10 border border-slate-on/30 rounded-2xl p-6 flex flex-col items-center justify-center text-center group hover:border-ireland-emerald/50 transition-all">
+      <div class="w-2 h-2 rounded-full mb-3 animate-pulse" style={`background-color: ${tech.color}`}></div>
+      <h4 class="text-white font-bold text-sm mb-1">{tech.name}</h4>
+      <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">{tech.category}</span>
+    </div>
+  ))}
+</div>

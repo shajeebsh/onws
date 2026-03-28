@@ -1,24 +1,142 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import Hero from '../components/Hero.astro';
-import Geospatial from '../components/Geospatial.astro';
-import Products from '../components/Products.astro';
-import Recruitment from '../components/Recruitment.astro';
-import About from '../components/About.astro';
-import Contact from '../components/Contact.astro';
+import Hero from '../components/ui/Hero.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import GradientCard from '../components/ui/GradientCard.astro';
+import TrustBadges from '../components/interactive/TrustBadges.astro';
+import TechStackShowcase from '../components/interactive/TechStackShowcase.astro';
+import ComparisonMatrix from '../components/interactive/ComparisonMatrix.astro';
+import SmartContactForm from '../components/forms/SmartContactForm.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Elite Tech, Geospatial & Recruitment">
+<Layout title="Digital Infrastructure for Irish Business">
 	<Navbar />
 	<main>
-		<Hero />
-		<Geospatial />
-		<Products />
-		<Recruitment />
-		<About />
-		<Contact />
+		<Hero 
+			title="Digital Infrastructure — for Irish Business"
+			subtitle="From immersive 8K Streetview solutions to high-performance ERP & CRM systems, we bridge the gap between physical reality and digital scale."
+			cta1={{ text: "Explore Streetview", href: "/streetview" }}
+			cta2={{ text: "Discover ERP & CRM", href: "/solutions/erp" }}
+      imageSrc="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070"
+		/>
+
+		<section class="max-w-7xl mx-auto px-4 py-24 bg-white rounded-[3rem] shadow-sm border border-brand-border -mt-20 relative z-20">
+			<TrustBadges />
+		</section>
+
+		<section class="py-32">
+			<div class="max-w-7xl mx-auto px-4">
+				<SectionHeader 
+					title="Unified Business Intelligence"
+					subtitle="Our proprietary ERP and CRM solutions are engineered specifically for the Irish regulatory and SME landscape."
+					centered
+				/>
+				<div class="mt-16 bg-white border border-brand-border rounded-[3rem] p-8 md:p-16 shadow-2xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-ireland-emerald/5 blur-[100px] rounded-full"></div>
+					<ComparisonMatrix />
+				</div>
+			</div>
+		</section>
+
+    <!-- Streetview Feature -->
+    <section class="py-32 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div class="order-2 lg:order-1 relative group">
+            <div class="absolute -inset-4 bg-ireland-emerald/10 rounded-[2.5rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1573164067507-406cd3d395aa?auto=format&fit=crop&q=80&w=2069" 
+              alt="Geospatial Mapping" 
+              class="relative rounded-[2rem] shadow-2xl border-4 border-white"
+            />
+          </div>
+          <div class="order-1 lg:order-2">
+            <SectionHeader 
+              title="8K Geospatial — The Blue Line"
+              subtitle="Capture every detail of Irish infrastructure with our elite mapping services. Precision data meets immersive reality."
+            />
+            <div class="space-y-6 mb-10">
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-white shadow-sm border border-brand-border rounded-xl flex items-center justify-center text-ireland-emerald shrink-0">
+                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /></svg>
+                </div>
+                <div>
+                  <h4 class="text-deep-navy font-bold">Nationwide Coverage</h4>
+                  <p class="text-slate-500 text-sm italic">Sub-meter accurate data for councils, developers, and utility providers.</p>
+                </div>
+              </div>
+            </div>
+            <a href="/streetview" class="btn-primary inline-block">Explore Solutions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+		<section class="py-32 overflow-hidden bg-white">
+			<div class="max-w-7xl mx-auto px-4">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+					<div>
+						<SectionHeader 
+							title="Engineering Elite Performance"
+							subtitle="We build with the world's most robust tech stacks to ensure your infrastructure scales without friction."
+						/>
+						<div class="space-y-8 text-slate-500">
+							<p class="text-lg leading-relaxed font-medium italic">
+								"Our engineering culture is rooted in precision. Whether it's processing 8K geospatial data or managing enterprise supply chains, we prioritize zero-failure architecture."
+							</p>
+							<div class="pt-8 border-t border-brand-border">
+								<h4 class="text-deep-navy font-black uppercase tracking-widest text-xs mb-8">Our Core Stack</h4>
+								<TechStackShowcase />
+							</div>
+						</div>
+					</div>
+          <div class="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070" 
+              alt="Engineering Team" 
+              class="rounded-[2.5rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
+            />
+            <div class="absolute -bottom-10 -right-10 bg-ireland-emerald p-8 rounded-3xl shadow-2xl hidden md:block">
+              <span class="block text-4xl font-black text-white">2026</span>
+              <span class="text-xs font-bold text-white uppercase tracking-widest">Future Ready</span>
+            </div>
+          </div>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-32 bg-slate-50" id="contact">
+			<div class="max-w-7xl mx-auto px-4">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+					<div>
+						<SectionHeader 
+							title="Ready to Scale? — Let's Talk."
+							subtitle="Whether you're planning a nationwide streetview project or upgrading your enterprise systems, our team is ready to assist."
+						/>
+						<div class="space-y-6">
+							<GradientCard variant="emerald" class="border-dashed border-2">
+								<h4 class="text-deep-navy font-bold mb-2 uppercase tracking-widest text-xs">Priority Flagging</h4>
+								<p class="text-sm text-slate-500 font-medium">Large-scale projects (>50km²) or enterprises with >50 employees receive immediate priority scheduling.</p>
+							</GradientCard>
+              <div class="p-8 bg-white border border-brand-border rounded-[2rem] shadow-sm">
+                <p class="text-slate-500 text-sm leading-relaxed mb-6 italic">"The transition to OliveERP was the most significant efficiency gain our firm has seen in a decade. Local compliance is finally a solved problem."</p>
+                <div class="flex items-center gap-4">
+                  <div class="w-10 h-10 bg-slate-200 rounded-full"></div>
+                  <div>
+                    <p class="text-deep-navy font-bold text-xs uppercase tracking-widest">MD, Irish Manufacturing Group</p>
+                  </div>
+                </div>
+              </div>
+						</div>
+					</div>
+          <div class="bg-white p-2 rounded-[2.5rem] shadow-2xl border border-brand-border">
+					  <SmartContactForm />
+          </div>
+				</div>
+			</div>
+		</section>
 	</main>
 	<Footer />
 </Layout>

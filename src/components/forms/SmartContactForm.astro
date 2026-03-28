@@ -1,0 +1,95 @@
+---
+---
+
+<div class="bg-white p-10 rounded-3xl relative">
+  <form 
+    name="smart-contact" 
+    method="POST" 
+    data-netlify="true" 
+    netlify-honeypot="bot-field"
+    class="space-y-6"
+    id="smart-form"
+  >
+    <input type="hidden" name="form-name" value="smart-contact" />
+    <input type="hidden" name="submission-source" id="form-source" value="landing" />
+    <p class="hidden">
+      <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="space-y-2">
+        <label for="smart-name" class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Full Name</label>
+        <input type="text" id="smart-name" name="name" required class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all placeholder:text-slate-300" placeholder="John Doe" />
+      </div>
+      <div class="space-y-2">
+        <label for="smart-email" class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Email Address</label>
+        <input type="email" id="smart-email" name="email" required class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all placeholder:text-slate-300" placeholder="john@example.com" />
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <label for="smart-type" class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Inquiry Type</label>
+      <select id="smart-type" name="type" required class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all appearance-none cursor-pointer">
+        <option value="" disabled selected>Select service...</option>
+        <option value="streetview">Streetview Projects</option>
+        <option value="erp">ERP Solutions</option>
+        <option value="crm">CRM Solutions</option>
+        <option value="recruitment">Elite Recruitment</option>
+        <option value="general">General Inquiry</option>
+      </select>
+    </div>
+
+    <!-- Conditional Section: Streetview -->
+    <div id="section-streetview" class="hidden space-y-4 pt-4 border-t border-brand-border animate-in fade-in slide-in-from-top-2">
+      <label class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Approximate Area (km²)</label>
+      <input type="number" name="area" class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none" placeholder="e.g. 15" />
+    </div>
+
+    <!-- Conditional Section: ERP/CRM -->
+    <div id="section-solutions" class="hidden space-y-4 pt-4 border-t border-brand-border animate-in fade-in slide-in-from-top-2">
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Company Size</label>
+          <input type="number" name="company-size" class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none" placeholder="Employees" />
+        </div>
+        <div>
+          <label class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Industry</label>
+          <input type="text" name="industry" class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none" placeholder="Sector" />
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <label for="smart-message" class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Message</label>
+      <textarea id="smart-message" name="message" rows="4" required class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all placeholder:text-slate-300" placeholder="How can we help?"></textarea>
+    </div>
+
+    <button type="submit" class="btn-primary w-full py-5">
+      Initialize Inquiry
+    </button>
+  </form>
+</div>
+
+<script>
+  const typeSelect = document.getElementById('smart-type') as HTMLSelectElement;
+  const streetviewSec = document.getElementById('section-streetview');
+  const solutionsSec = document.getElementById('section-solutions');
+  const formSource = document.getElementById('form-source') as HTMLInputElement;
+
+  // Set source based on current URL
+  if (formSource) formSource.value = window.location.pathname;
+
+  typeSelect?.addEventListener('change', () => {
+    const val = typeSelect.value;
+    
+    // Reset all
+    streetviewSec?.classList.add('hidden');
+    solutionsSec?.classList.add('hidden');
+
+    if (val === 'streetview') {
+      streetviewSec?.classList.remove('hidden');
+    } else if (val === 'erp' || val === 'crm') {
+      solutionsSec?.classList.remove('hidden');
+    }
+  });
+</script>
