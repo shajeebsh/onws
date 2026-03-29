@@ -15,6 +15,7 @@ import Footer from '../../components/Footer.astro';
       subtitle="Capturing Ireland's infrastructure with 8K high-fidelity 360° imagery. From urban planning to immersive tourism, we provide the data that drives decisions."
       cta1={{ text: "Calculate Project Cost", href: "#calculator" }}
       cta2={{ text: "View Technology", href: "/streetview/technology" }}
+      imageSrc="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000"
     />
 
     <section class="py-24 max-w-7xl mx-auto px-4">
@@ -38,9 +39,16 @@ import Footer from '../../components/Footer.astro';
             ))}
           </ul>
         </div>
-        <div class="bg-slate-on/20 aspect-video rounded-3xl border border-slate-on/50 flex items-center justify-center relative overflow-hidden group">
-          <div class="absolute inset-0 bg-gradient-to-tr from-deep-navy to-transparent opacity-60"></div>
-          <span class="text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-ireland-emerald transition-colors">Immersive 360° Preview</span>
+        <div class="relative group">
+          <div class="absolute -inset-4 bg-ireland-emerald/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=2000" 
+            alt="360 Degree Camera Hardware" 
+            class="relative rounded-[2rem] shadow-2xl border-4 border-white object-cover h-[400px] w-full"
+          />
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            <span class="bg-deep-navy/80 text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest backdrop-blur-md">Immersive 8K Sensor</span>
+          </div>
         </div>
       </div>
     </section>
