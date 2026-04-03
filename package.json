@@ -8,7 +8,11 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
@@ -26,5 +30,10 @@
     "@astrojs/tailwind": "^6.0.2",
     "astro": "^5.18.1",
     "tailwindcss": "^3.4.19"
+  },
+  "devDependencies": {
+    "@vitest/ui": "^4.1.2",
+    "jsdom": "^29.0.1",
+    "vitest": "^4.1.2"
   }
 }
