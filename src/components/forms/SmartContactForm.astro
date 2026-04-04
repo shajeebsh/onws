@@ -1,4 +1,9 @@
 ---
+interface Props {
+  source?: string;
+}
+
+const { source = 'landing' } = Astro.props;
 ---
 
 <div class="bg-white p-10 rounded-3xl relative">
@@ -9,27 +14,49 @@
     netlify-honeypot="bot-field"
     class="space-y-6"
     id="smart-form"
+    novalidate
   >
     <input type="hidden" name="form-name" value="smart-contact" />
-    <input type="hidden" name="submission-source" id="form-source" value="landing" />
+    <input type="hidden" name="submission-source" id="form-source" value={source} />
     <p class="hidden">
-      <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+      <label>Don't fill this out if you're human: <input name="bot-field" /></label>
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div class="space-y-2">
         <label for="smart-name" class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Full Name</label>
-        <input type="text" id="smart-name" name="name" required class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all placeholder:text-slate-300" placeholder="John Doe" />
+        <input 
+          type="text" 
+          id="smart-name" 
+          name="name" 
+          required 
+          class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all placeholder:text-slate-300" 
+          placeholder="John Doe" 
+        />
+        <p class="text-red-500 text-xs mt-1 hidden" id="error-name"></p>
       </div>
       <div class="space-y-2">
         <label for="smart-email" class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Email Address</label>
-        <input type="email" id="smart-email" name="email" required class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all placeholder:text-slate-300" placeholder="john@example.com" />
+        <input 
+          type="email" 
+          id="smart-email" 
+          name="email" 
+          required 
+          class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all placeholder:text-slate-300" 
+          placeholder="john@example.com" 
+        />
+        <p class="text-red-500 text-xs mt-1 hidden" id="error-email"></p>
       </div>
     </div>
 
     <div class="space-y-2">
       <label for="smart-type" class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Inquiry Type</label>
-      <select id="smart-type" name="type" required class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all appearance-none cursor-pointer">
+      <select 
+        id="smart-type" 
+        name="type" 
+        required 
+        class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all appearance-none cursor-pointer"
+      >
         <option value="" disabled selected>Select service...</option>
         <option value="streetview">Streetview Projects</option>
         <option value="erp">ERP Solutions</option>
@@ -39,34 +66,66 @@
       </select>
     </div>
 
-    <!-- Conditional Section: Streetview -->
-    <div id="section-streetview" class="hidden space-y-4 pt-4 border-t border-brand-border animate-in fade-in slide-in-from-top-2">
+    <div id="section-streetview" class="hidden space-y-4 pt-4 border-t border-brand-border">
       <label class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Approximate Area (km²)</label>
-      <input type="number" name="area" class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none" placeholder="e.g. 15" />
+      <input 
+        type="number" 
+        name="area" 
+        min="0.1"
+        step="0.1"
+        class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none" 
+        placeholder="e.g. 15" 
+      />
     </div>
 
-    <!-- Conditional Section: ERP/CRM -->
-    <div id="section-solutions" class="hidden space-y-4 pt-4 border-t border-brand-border animate-in fade-in slide-in-from-top-2">
+    <div id="section-solutions" class="hidden space-y-4 pt-4 border-t border-brand-border">
       <div class="grid grid-cols-2 gap-4">
         <div>
           <label class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Company Size</label>
-          <input type="number" name="company-size" class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none" placeholder="Employees" />
+          <input 
+            type="number" 
+            name="company-size" 
+            min="1"
+            class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none" 
+            placeholder="Employees" 
+          />
         </div>
         <div>
           <label class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Industry</label>
-          <input type="text" name="industry" class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none" placeholder="Sector" />
+          <input 
+            type="text" 
+            name="industry" 
+            class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none" 
+            placeholder="Sector" 
+          />
         </div>
       </div>
     </div>
 
     <div class="space-y-2">
       <label for="smart-message" class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Message</label>
-      <textarea id="smart-message" name="message" rows="4" required class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all placeholder:text-slate-300" placeholder="How can we help?"></textarea>
+      <textarea 
+        id="smart-message" 
+        name="message" 
+        rows="4" 
+        required 
+        minlength="10"
+        class="w-full bg-slate-50 border border-brand-border rounded-xl px-4 py-4 text-deep-navy focus:border-ireland-emerald outline-none transition-all placeholder:text-slate-300" 
+        placeholder="How can we help?"
+      ></textarea>
+      <p class="text-red-500 text-xs mt-1 hidden" id="error-message"></p>
     </div>
 
-    <button type="submit" class="btn-primary w-full py-5">
+    <button type="submit" class="btn-primary w-full py-5" id="submit-btn">
       Initialize Inquiry
     </button>
+
+    <p id="form-success" class="text-green-600 text-center font-medium hidden">
+      Thank you! We'll be in touch shortly.
+    </p>
+    <p id="form-error" class="text-red-600 text-center font-medium hidden">
+      Something went wrong. Please try again.
+    </p>
   </form>
 </div>
 
@@ -74,15 +133,11 @@
   const typeSelect = document.getElementById('smart-type') as HTMLSelectElement;
   const streetviewSec = document.getElementById('section-streetview');
   const solutionsSec = document.getElementById('section-solutions');
-  const formSource = document.getElementById('form-source') as HTMLInputElement;
-
-  // Set source based on current URL
-  if (formSource) formSource.value = window.location.pathname;
+  const form = document.getElementById('smart-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
 
   typeSelect?.addEventListener('change', () => {
     const val = typeSelect.value;
-    
-    // Reset all
     streetviewSec?.classList.add('hidden');
     solutionsSec?.classList.add('hidden');
 
@@ -90,6 +145,103 @@
       streetviewSec?.classList.remove('hidden');
     } else if (val === 'erp' || val === 'crm') {
       solutionsSec?.classList.remove('hidden');
+    }
+  });
+
+  function showError(fieldId: string, message: string): void {
+    const errorEl = document.getElementById(`error-${fieldId}`);
+    const inputEl = document.getElementById(`smart-${fieldId}`) as HTMLInputElement | HTMLTextAreaElement;
+    if (errorEl && inputEl) {
+      errorEl.textContent = message;
+      errorEl.classList.remove('hidden');
+      inputEl.classList.add('border-red-500');
+    }
+  }
+
+  function clearError(fieldId: string): void {
+    const errorEl = document.getElementById(`error-${fieldId}`);
+    const inputEl = document.getElementById(`smart-${fieldId}`) as HTMLInputElement | HTMLTextAreaElement;
+    if (errorEl && inputEl) {
+      errorEl.classList.add('hidden');
+      inputEl.classList.remove('border-red-500');
+    }
+  }
+
+  function validateEmail(email: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function validateForm(): boolean {
+    let isValid = true;
+    const name = (document.getElementById('smart-name') as HTMLInputElement).value;
+    const email = (document.getElementById('smart-email') as HTMLInputElement).value;
+    const message = (document.getElementById('smart-message') as HTMLTextAreaElement).value;
+
+    clearError('name');
+    clearError('email');
+    clearError('message');
+
+    if (!name.trim()) {
+      showError('name', 'Name is required');
+      isValid = false;
+    }
+
+    if (!email.trim()) {
+      showError('email', 'Email is required');
+      isValid = false;
+    } else if (!validateEmail(email)) {
+      showError('email', 'Please enter a valid email address');
+      isValid = false;
+    }
+
+    if (!message.trim()) {
+      showError('message', 'Message is required');
+      isValid = false;
+    } else if (message.trim().length < 10) {
+      showError('message', 'Message must be at least 10 characters');
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
+  ['smart-name', 'smart-email', 'smart-message'].forEach((id) => {
+    const el = document.getElementById(id);
+    el?.addEventListener('input', () => {
+      const fieldName = id.replace('smart-', '');
+      clearError(fieldName);
+    });
+  });
+
+  form?.addEventListener('submit', async (e: Event) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
+      if (response.ok) {
+        document.getElementById('form-success')?.classList.remove('hidden');
+        form.reset();
+      } else {
+        document.getElementById('form-error')?.classList.remove('hidden');
+      }
+    } catch {
+      document.getElementById('form-error')?.classList.remove('hidden');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Initialize Inquiry';
     }
   });
 </script>
